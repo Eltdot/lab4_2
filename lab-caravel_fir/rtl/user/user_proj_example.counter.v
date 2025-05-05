@@ -80,8 +80,8 @@ module user_proj_example #(
     wire [31:0] bram_Di;
     wire [3:0] bram_wen;
     wire [31:0] bram_A;
-    reg [31:0] axilite_Do;
-    reg [31:0] axistream_Do;
+    wire [31:0] axilite_Do;
+    wire [31:0] axistream_Do;
 
     assign clk = wb_clk_i;
     assign rst = wb_rst_i;
@@ -99,8 +99,8 @@ module user_proj_example #(
     wire [31:0] wbs_dat_o_next;
 
     reg bram_o_ok;
-    reg axilite_o_ok;
-    reg axistream_o_ok;
+    wire axilite_o_ok;
+    wire axistream_o_ok;
 
     assign la_data_out = {{(127-BITS){1'b0}}, count};
 
@@ -164,24 +164,25 @@ module user_proj_example #(
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // axilite write signal
-    reg  awvalid;
-    reg [11:0] awaddr;
+    wire  awvalid;
+    wire [11:0] awaddr;
     wire awready;
-    reg  wvalid;
+    wire  wvalid;
     wire wready;
-    reg [BITS-1:0] wdata;
+    wire [BITS-1:0] wdata;
 
     // axilite read signal
-    reg  arvalid;
-    reg  [11:0] araddr;
+    wire  arvalid;
+    wire  [11:0] araddr;
     wire arready;
     wire rvalid;
-    reg  rready;
+    wire  rready;
     wire [BITS-1:0] rdata;
 
-    
+    assign axilite_o_ok = wbs_axilite_en & (( wready & wbs_we_i) | (rvalid & ~wbs_we_i));
+    assign axilite_Do = (wbs_axilite_en & ~wbs_we_i) ? rdata : 32'b0;
 
-    always @(posedge clk or posedge rst) begin
+    /*always @(posedge clk or posedge rst) begin
         if (rst) begin
             axilite_o_ok <= 0;
             axilite_Do <= 0;
@@ -199,11 +200,15 @@ module user_proj_example #(
                 axilite_Do <= 0;
             end
         end
-    end
+    end*/
 
+    assign awvalid = wbs_axilite_en & wbs_we_i;
+    assign awaddr = wbs_axilite_en ?  wbs_adr_i [11:0] : 12'b0;
+    assign wvalid = wbs_axilite_en ? wbs_we_i : 0;
+    assign wdata = wbs_axilite_en ? wbs_dat_i : 0;
 
     // write signal
-    always @(posedge clk or posedge rst) begin
+    /*always @(posedge clk or posedge rst) begin
         if (rst) begin
             awvalid <= 0;
             awaddr <= 0;
@@ -220,10 +225,14 @@ module user_proj_example #(
             wvalid <= 0;
             wdata <= 0;
         end
-    end
+    end*/
+
+    assign arvalid = wbs_axilite_en ? ~(wbs_we_i) : 0;
+    assign araddr = wbs_axilite_en ? wbs_adr_i [11:0] : 0;
+    assign rready = wbs_axilite_en;
 
     // read signal
-    always @(posedge clk or posedge rst) begin
+    /*always @(posedge clk or posedge rst) begin
         if (rst) begin
             arvalid <= 0;
             araddr <= 0;
@@ -237,7 +246,7 @@ module user_proj_example #(
             araddr <= 0;
             rready <= 0;
         end
-    end
+    end*/
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -245,18 +254,21 @@ module user_proj_example #(
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
     // ss signal
-    reg  ss_tvalid;
+    wire  ss_tvalid;
     wire ss_tready;
-    reg  [BITS-1:0] ss_tdata;
+    wire  [BITS-1:0] ss_tdata;
     wire  ss_tlast;
 
     // sm signal
     wire sm_tvalid;
-    reg  sm_tready;
+    wire  sm_tready;
     wire [BITS-1:0] sm_tdata;
     wire sm_tlast;
 
-    always @(posedge clk or posedge rst) begin
+    assign axistream_o_ok = wbs_axistream_en & ((wbs_adr_i[2] & (wbs_we_i | sm_tvalid)) | ((~wbs_adr_i[2]) & (~wbs_we_i | ss_tready)));
+    assign axistream_Do = (wbs_axistream_en & wbs_adr_i[2] & ~wbs_we_i) ? sm_tdata : 0;
+
+    /*always @(posedge clk or posedge rst) begin
         if (rst) begin
             axistream_o_ok <= 0;
             axistream_Do <= 0;
@@ -284,10 +296,13 @@ module user_proj_example #(
                 axistream_Do <= 0;
             end
         end
-    end
+    end*/
+
+    assign ss_tvalid = wbs_axistream_en & (~wbs_adr_i[2]) & (wbs_we_i);
+    assign ss_tdata = (wbs_axistream_en & (~wbs_adr_i[2]) & (wbs_we_i)) ? wbs_dat_i : 0;
 
     // ss signal
-    always @(posedge clk or posedge rst) begin
+    /*always @(posedge clk or posedge rst) begin
         if (rst) begin
             ss_tvalid <= 0;
             ss_tdata <= 0;
@@ -298,10 +313,12 @@ module user_proj_example #(
             ss_tvalid <= 0;
             ss_tdata <= 0;
         end
-    end
+    end*/
+
+    assign sm_tready = wbs_axistream_en & (wbs_adr_i[2]) & ~(wbs_we_i);
 
     // sm signal
-    always @(posedge clk or posedge rst) begin
+    /*always @(posedge clk or posedge rst) begin
         if (rst) begin
             sm_tready <= 0;
         end else if (wbs_axistream_en & (wbs_adr_i[2]) & ~(wbs_we_i) & ~axistream_o_ok)begin
@@ -309,7 +326,7 @@ module user_proj_example #(
         end else begin
             sm_tready <= 0;
         end
-    end
+    end*/
 
     // 先確認一下是不是對的
     assign ss_tlast = (ss_tdata == 63);
