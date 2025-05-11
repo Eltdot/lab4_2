@@ -1,21 +1,46 @@
-rm -f counter_la_fir.hex
+#!/bin/bash
+set -e  # 出錯就停下來
 
-riscv32-unknown-elf-gcc -Wl,--no-warn-rwx-segments -g \
-	--save-temps \
-	-Xlinker -Map=output.map \
-	-I../../firmware \
-	-march=rv32i -mabi=ilp32 -D__vexriscv__ \
-	-Wl,-Bstatic,-T,../../firmware/sections.lds,--strip-discarded \
-	-ffreestanding -nostartfiles -o counter_la_fir.elf ../../firmware/crt0_vex.S ../../firmware/isr.c fir.c counter_la_fir.c
-# -nostartfiles	
-riscv32-unknown-elf-objcopy -O verilog counter_la_fir.elf counter_la_fir.hex
-riscv32-unknown-elf-objdump -D counter_la_fir.elf > counter_la_fir.out
+TARGET=counter_la_fir
+FW_DIR=../../firmware
+C_SOURCES="fir.c counter_la_fir.c"
+ASM_SOURCES="$FW_DIR/crt0_vex.S"
+INCLUDES="-I$FW_DIR"
 
-# to fix flash base address
-sed -ie 's/@10/@00/g' counter_la_fir.hex
+echo "[1] Compiling firmware..."
+riscv32-unknown-elf-gcc -O3 -g \
+  -march=rv32i -mabi=ilp32 \
+  -ffreestanding -nostartfiles \
+  -D__vexriscv__ \
+  --save-temps \
+  -Wl,--no-warn-rwx-segments \
+  -Wl,-Bstatic,-T,$FW_DIR/sections.lds,--strip-discarded \
+  $INCLUDES \
+  -o $TARGET.elf \
+  $ASM_SOURCES $FW_DIR/isr.c $C_SOURCES
+
+echo "[2] Generating fresh hex and disassembly..."
+riscv32-unknown-elf-objcopy -O verilog $TARGET.elf $TARGET.hex
+riscv32-unknown-elf-objdump -D $TARGET.elf > $TARGET.out
+
+# 注意：不要觸碰你的 fir_opt.hex，只處理自動生成的 hex
+# 若你仍希望改自動生成的 hex 再用，也可將下一行註解取消
+# sed -i 's/@10/@00/g' $TARGET.hex
+
+echo "[3] Running simulation with fir_opt.hex..."
+# 確保 fir_opt.hex 存在
+if [ ! -f fir_opt.hex ]; then
+  echo "❌ Error: fir_opt.hex not found. Please provide it first."
+  exit 1
+fi
 
 iverilog -Ttyp -DFUNCTIONAL -DSIM -DUNIT_DELAY=#1 \
-	-f./include.rtl.list -o counter_la_fir.vvp counter_la_fir_tb.v
+  -f ./include.rtl.list -o $TARGET.vvp ${TARGET}_tb.v
 
-vvp counter_la_fir.vvp
-rm -f counter_la_fir.vvp counter_la_fir.elf counter_la_fir.hexe
+# 模擬時只用你自己準備的 fir_opt.hex
+cp fir_opt.hex counter_la_fir.hex
+
+vvp $TARGET.vvp
+
+echo "[✓] Simulation done using fir_opt.hex"
+

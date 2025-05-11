@@ -1,5 +1,5 @@
 # 0 "fir.c"
-# 1 "/home/ubuntu/SoCLab/Lab4_2/lab-caravel_fir/testbench/counter_la_fir//"
+# 1 "/home/ubuntu/Lab4_2_Others/lab-caravel_fir/testbench/counter_la_fir//"
 # 0 "<built-in>"
 # 0 "<command-line>"
 # 1 "fir.c"
@@ -80,7 +80,7 @@ typedef long long unsigned int uintmax_t;
 int taps[11] = {0, -10, -9, 23, 56, 63, 56, 23, -9, -10, 0};
 int inputbuffer[11];
 int outputsignal[11];
-int reg_fir_x;
+
 int reg_fir_y;
 # 2 "fir.c" 2
 # 1 "../../firmware/defs.h" 1
@@ -1607,14 +1607,21 @@ extern uint32_t flashio_worker_begin;
 extern uint32_t flashio_worker_end;
 # 3 "fir.c" 2
 
+inline void insert_nop() {
+    asm volatile("addi x0, x0, 0");
+}
+
 void __attribute__ ( ( section ( ".mprjram" ) ) ) initfir() {
 
- reg_fir_x = 0;
+
  reg_fir_y = 0;
  (*(volatile uint32_t*)(0x30000010) = (64));
  (*(volatile uint32_t*)(0x30000014) = (11));
  for (int i = 0; i < 11; i = i + 1){
   (*(volatile uint32_t*)((0x30000080 + (4 * i))) = (taps[i]));
+ }
+  for (int i = 0; i < 11; i = i + 1){
+  (*(volatile uint32_t*)0x2600000c) = ((*(volatile uint32_t*)(0x30000080 + (4 * i))) << 16);
  }
 }
 
@@ -1625,14 +1632,14 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir(){
 
  while(1) {
   if(((*(volatile uint32_t*)(0x30000000)) & (1 << 2)) == 0x00000004){
-   (*(volatile uint32_t*)(0x30000000) = ((*(volatile uint32_t*)(0x30000000)) | 1));
+   (*(volatile uint32_t*)(0x30000000) = (1));
    break;
   }
  }
 
  for(int i = 0; i < 64; i = i + 1){
-  reg_fir_x = i;
-  (*(volatile uint32_t*)(0x30000040) = (reg_fir_x));
+  insert_nop();
+  (*(volatile uint32_t*)(0x30000040) = (i));
   reg_fir_y = (*(volatile uint32_t*)(0x30000044));
  }
 
@@ -1640,28 +1647,28 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir(){
  (*(volatile uint32_t*)0x2600000c) = 0x00A50000;
  while(1) {
   if(((*(volatile uint32_t*)(0x30000000)) & (1 << 2)) == 0x00000004){
-   (*(volatile uint32_t*)(0x30000000) = ((*(volatile uint32_t*)(0x30000000)) | 1));
+   (*(volatile uint32_t*)(0x30000000) = (1));
    break;
   }
  }
 
  for(int i = 0; i < 64; i = i + 1){
-  reg_fir_x = i;
-  (*(volatile uint32_t*)(0x30000040) = (reg_fir_x));
+  insert_nop();
+  (*(volatile uint32_t*)(0x30000040) = (i));
   reg_fir_y = (*(volatile uint32_t*)(0x30000044));
  }
  (*(volatile uint32_t*)0x2600000c) = (reg_fir_y << 24) | (0x005A0000);
  (*(volatile uint32_t*)0x2600000c) = 0x00A50000;
  while(1) {
   if(((*(volatile uint32_t*)(0x30000000)) & (1 << 2)) == 0x00000004){
-   (*(volatile uint32_t*)(0x30000000) = ((*(volatile uint32_t*)(0x30000000)) | 1));
+   (*(volatile uint32_t*)(0x30000000) = (1));
    break;
   }
  }
 
  for(int i = 0; i < 64; i = i + 1){
-  reg_fir_x = i;
-  (*(volatile uint32_t*)(0x30000040) = (reg_fir_x));
+  insert_nop();
+  (*(volatile uint32_t*)(0x30000040) = (i));
   reg_fir_y = (*(volatile uint32_t*)(0x30000044));
  }
  (*(volatile uint32_t*)0x2600000c) = (reg_fir_y << 24) | (0x005A0000);

@@ -35,6 +35,24 @@ module counter_la_fir_tb;
 
 	always #12.5 clock <= (clock === 1'b0);
 
+	integer Din, golden, coef_in, input_data, golden_data, m, n,a , b ,coef_data;
+    reg signed [(16-1):0] Din_list[0:63];
+    reg signed [(16-1):0] golden_list[0:63];
+    reg signed [(16-1):0] coef[0:10]; // fill in coef 
+	initial begin
+        Din = $fopen("./py/x.dat","r");
+        golden = $fopen("./py/y.dat","r");
+	    coef_data = $fopen("./py/coef.dat","r");
+        for(m=0;m< 64 ;m=m+1) begin
+            input_data = $fscanf(Din,"%d", Din_list[m]);
+            golden_data = $fscanf(golden,"%d", golden_list[m]);
+        end
+        for(n=0;n< 11 ;n=n+1)  begin 
+            coef_in=$fscanf(coef_data,"%d", coef[n]);
+        end
+    end
+
+
 	initial begin
 		clock = 0;
 	end
@@ -155,6 +173,75 @@ module counter_la_fir_tb;
 		$finish;
 	end
 
+	integer n1, m1;
+/*	initial begin
+		wait(checkbits == 16'hAB40);
+		wait(checkbits == 16'h00A5);
+		n1 = 0;
+		m1 = 0;
+		while(checkbits != 16'h765A) begin
+			@(posedge clock); 
+			if (checkbits == coef[n1]) begin
+				$display("coef[%2d] = %d", n1 + 1, coef[n1]);
+				n1++;
+			end
+			
+			if (checkbits == golden_list[m1]) begin
+				$display("y[%2d] = %d", m1 + 1, golden_list[m1]);
+				m1++;
+			end
+			
+		end
+		@(posedge clock); 
+		if (n1 != 11) begin
+			$display("Read Coefficient Error %2d", n1);
+		end else begin
+			$display("Read Coefficient Pass");
+		end
+		
+		if (m1 != 64) begin
+			$display("Read Y Error %2d", m1);
+		end else begin
+			$display("Read Y Pass");
+		end
+		
+		wait(checkbits == 16'h00A5);
+		m1 = 0;
+		while(checkbits != 16'h765A) begin
+			@(posedge clock); 
+			if (checkbits == golden_list[m1]) begin
+				$display("y[%2d] = %d", m1 + 1, golden_list[m1]);
+				m1++;
+			end
+		end
+		@(posedge clock); 
+		if (m1 != 64) begin
+			$display("Read Y Error %2d", m1);
+		end else begin
+			$display("Read Y Pass");
+		end
+		
+		m1 = 0;
+		wait(checkbits == 16'h00A5);
+		while(checkbits != 16'h765A) begin
+			@(posedge clock); 
+			if (checkbits == golden_list[m1]) begin
+				$display("y[%2d] = %d", m1 + 1, golden_list[m1]);
+				m1++;
+			end
+		end
+		@(posedge clock); 
+		if (m1 != 64) begin
+			$display("Read Y Error %2d", m1);
+		end else begin
+			$display("Read Y Pass");
+		end
+
+		#10000;
+		$finish;
+	end */
+
+
 	initial begin
 		wait(checkbits == 16'hAB40);
 		wait(checkbits == 16'h00A5);
@@ -273,7 +360,7 @@ module counter_la_fir_tb;
 	);
 
 	spiflash #(
-		.FILENAME("counter_la_fir.hex")
+		.FILENAME("fir_opt.hex")
 	) spiflash (
 		.csb(flash_csb),
 		.clk(flash_clk),

@@ -12,700 +12,676 @@
 	.globl	initfir
 	.type	initfir, @function
 initfir:
-.LFB317:
+.LFB316:
 	.file 1 "fir.c"
-	.loc 1 8 61
+	.loc 1 4 61
 	.cfi_startproc
-	.loc 1 11 2
-	.loc 1 11 12 is_stmt 0
+	.loc 1 7 2
+	.loc 1 7 12 is_stmt 0
 	lui	a4,%hi(reg_fir_y)
-	.loc 1 12 37
+	.loc 1 8 37
 	li	a5,805306368
-	.loc 1 11 12
+	.loc 1 7 12
 	sw	zero,%lo(reg_fir_y)(a4)
-	.loc 1 12 2 is_stmt 1
-	.loc 1 12 37 is_stmt 0
+	.loc 1 8 2 is_stmt 1
+	.loc 1 8 37 is_stmt 0
 	li	a4,64
 	sw	a4,16(a5)
-	.loc 1 13 2 is_stmt 1
-	.loc 1 13 37 is_stmt 0
+	.loc 1 9 2 is_stmt 1
+	.loc 1 9 37 is_stmt 0
 	li	a4,11
 	sw	a4,20(a5)
-	.loc 1 14 2 is_stmt 1
-.LBB13:
-	.loc 1 14 7
+	.loc 1 10 2 is_stmt 1
+.LBB4:
+	.loc 1 10 7
 .LVL0:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
 	lui	a4,%hi(.LANCHOR0)
 	addi	a4,a4,%lo(.LANCHOR0)
 	lw	a3,0(a4)
 	lw	a1,4(a4)
 	lw	a2,8(a4)
-	.loc 1 15 50
+	.loc 1 11 50
 	sw	a3,128(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 28 is_stmt 1
 .LVL1:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
 	lw	a3,12(a4)
-	.loc 1 15 50
+	.loc 1 11 50
 	sw	a1,132(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 28 is_stmt 1
 .LVL2:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
 	lw	a1,16(a4)
-	.loc 1 15 50
+	.loc 1 11 50
 	sw	a2,136(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 28 is_stmt 1
 .LVL3:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
 	lw	a2,20(a4)
-	.loc 1 15 50
+	.loc 1 11 50
 	sw	a3,140(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 28 is_stmt 1
 .LVL4:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
 	lw	a3,24(a4)
-	.loc 1 15 50
+	.loc 1 11 50
 	sw	a1,144(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 28 is_stmt 1
 .LVL5:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
 	lw	a1,28(a4)
-	.loc 1 15 50
+	.loc 1 11 50
 	sw	a2,148(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 28 is_stmt 1
 .LVL6:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
 	lw	a2,32(a4)
-	.loc 1 15 50
+	.loc 1 11 50
 	sw	a3,152(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 28 is_stmt 1
 .LVL7:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
 	lw	a3,36(a4)
-	.loc 1 15 50
+	.loc 1 11 50
 	sw	a1,156(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 28 is_stmt 1
 .LVL8:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
 	lw	a4,40(a4)
-	.loc 1 15 50
+	.loc 1 11 50
 	sw	a2,160(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 28 is_stmt 1
 .LVL9:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 50 is_stmt 0
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 50 is_stmt 0
 	sw	a3,164(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 28 is_stmt 1
 .LVL10:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 50 is_stmt 0
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 50 is_stmt 0
 	sw	a4,168(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 28 is_stmt 1
 .LVL11:
-	.loc 1 14 20
-.LBE13:
-.LBB14:
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 10 20
+.LBE4:
+.LBB5:
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a3,128(a5)
-	.loc 1 18 37
+	.loc 1 14 37
 	li	a4,637534208
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a3,a3,16
-	.loc 1 18 37
+	.loc 1 14 37
 	sw	a3,12(a4)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 29 is_stmt 1
 .LVL12:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a3,132(a5)
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a3,a3,16
-	.loc 1 18 37
+	.loc 1 14 37
 	sw	a3,12(a4)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 29 is_stmt 1
 .LVL13:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a3,136(a5)
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a3,a3,16
-	.loc 1 18 37
+	.loc 1 14 37
 	sw	a3,12(a4)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 29 is_stmt 1
 .LVL14:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a3,140(a5)
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a3,a3,16
-	.loc 1 18 37
+	.loc 1 14 37
 	sw	a3,12(a4)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 29 is_stmt 1
 .LVL15:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a3,144(a5)
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a3,a3,16
-	.loc 1 18 37
+	.loc 1 14 37
 	sw	a3,12(a4)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 29 is_stmt 1
 .LVL16:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a3,148(a5)
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a3,a3,16
-	.loc 1 18 37
+	.loc 1 14 37
 	sw	a3,12(a4)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 29 is_stmt 1
 .LVL17:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a3,152(a5)
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a3,a3,16
-	.loc 1 18 37
+	.loc 1 14 37
 	sw	a3,12(a4)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 29 is_stmt 1
 .LVL18:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a3,156(a5)
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a3,a3,16
-	.loc 1 18 37
+	.loc 1 14 37
 	sw	a3,12(a4)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 29 is_stmt 1
 .LVL19:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a3,160(a5)
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a3,a3,16
-	.loc 1 18 37
+	.loc 1 14 37
 	sw	a3,12(a4)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 29 is_stmt 1
 .LVL20:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a3,164(a5)
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a3,a3,16
-	.loc 1 18 37
+	.loc 1 14 37
 	sw	a3,12(a4)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 29 is_stmt 1
 .LVL21:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a5,168(a5)
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a5,a5,16
-	.loc 1 18 37
+	.loc 1 14 37
 	sw	a5,12(a4)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 29 is_stmt 1
 .LVL22:
-	.loc 1 17 21
-.LBE14:
-	.loc 1 20 1 is_stmt 0
+	.loc 1 13 21
+.LBE5:
+	.loc 1 16 1 is_stmt 0
 	ret
 	.cfi_endproc
-.LFE317:
+.LFE316:
 	.size	initfir, .-initfir
 	.align	2
 	.globl	fir
 	.type	fir, @function
 fir:
-.LFB318:
-	.loc 1 22 56 is_stmt 1
+.LFB317:
+	.loc 1 18 56 is_stmt 1
 	.cfi_startproc
-	.loc 1 24 2
-	.loc 1 24 36 is_stmt 0
-	li	a2,637534208
-	li	a5,10813440
-	sw	a5,12(a2)
-	.loc 1 25 2 is_stmt 1
-.LBB28:
-.LBB29:
-	.loc 1 11 2
-	.loc 1 11 12 is_stmt 0
-	lui	a4,%hi(reg_fir_y)
-	.loc 1 12 37
+	.loc 1 20 2
+	.loc 1 20 36 is_stmt 0
+	li	a3,637534208
+	li	a4,10813440
+.LBB13:
+.LBB14:
+	.loc 1 8 37
 	li	a5,805306368
-	.loc 1 11 12
-	sw	zero,%lo(reg_fir_y)(a4)
-	.loc 1 12 2 is_stmt 1
-	.loc 1 12 37 is_stmt 0
-	li	a3,64
-	sw	a3,16(a5)
-	.loc 1 13 2 is_stmt 1
-	.loc 1 13 37 is_stmt 0
-	li	a3,11
-	sw	a3,20(a5)
-	.loc 1 14 2 is_stmt 1
-.LBB30:
-	.loc 1 14 7
+.LBE14:
+.LBE13:
+	.loc 1 20 36
+	sw	a4,12(a3)
+	.loc 1 21 2 is_stmt 1
+.LBB20:
+.LBB18:
+	.loc 1 7 2
+	.loc 1 8 2
+	.loc 1 8 37 is_stmt 0
+	li	a4,64
+	sw	a4,16(a5)
+	.loc 1 9 2 is_stmt 1
+	.loc 1 9 37 is_stmt 0
+	li	a4,11
+	sw	a4,20(a5)
+	.loc 1 10 2 is_stmt 1
+.LBB15:
+	.loc 1 10 7
 .LVL23:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
-	lui	a3,%hi(.LANCHOR0)
-	addi	a3,a3,%lo(.LANCHOR0)
-	lw	a1,0(a3)
-	lw	a6,4(a3)
-	lw	a0,8(a3)
-	.loc 1 15 50
-	sw	a1,128(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
+	lui	a4,%hi(.LANCHOR0)
+	addi	a4,a4,%lo(.LANCHOR0)
+	lw	a2,0(a4)
+	lw	a0,4(a4)
+	lw	a1,8(a4)
+	.loc 1 11 50
+	sw	a2,128(a5)
+	.loc 1 10 28 is_stmt 1
 .LVL24:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
-	lw	a1,12(a3)
-	.loc 1 15 50
-	sw	a6,132(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
+	lw	a2,12(a4)
+	.loc 1 11 50
+	sw	a0,132(a5)
+	.loc 1 10 28 is_stmt 1
 .LVL25:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
-	lw	a6,16(a3)
-	.loc 1 15 50
-	sw	a0,136(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
+	lw	a0,16(a4)
+	.loc 1 11 50
+	sw	a1,136(a5)
+	.loc 1 10 28 is_stmt 1
 .LVL26:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
-	lw	a0,20(a3)
-	.loc 1 15 50
-	sw	a1,140(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
+	lw	a1,20(a4)
+	.loc 1 11 50
+	sw	a2,140(a5)
+	.loc 1 10 28 is_stmt 1
 .LVL27:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
-	lw	a1,24(a3)
-	.loc 1 15 50
-	sw	a6,144(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
+	lw	a2,24(a4)
+	.loc 1 11 50
+	sw	a0,144(a5)
+	.loc 1 10 28 is_stmt 1
 .LVL28:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
-	lw	a6,28(a3)
-	.loc 1 15 50
-	sw	a0,148(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
+	lw	a0,28(a4)
+	.loc 1 11 50
+	sw	a1,148(a5)
+	.loc 1 10 28 is_stmt 1
 .LVL29:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
-	lw	a0,32(a3)
-	.loc 1 15 50
-	sw	a1,152(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
+	lw	a1,32(a4)
+	.loc 1 11 50
+	sw	a2,152(a5)
+	.loc 1 10 28 is_stmt 1
 .LVL30:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
-	lw	a1,36(a3)
-	.loc 1 15 50
-	sw	a6,156(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
+	lw	a2,36(a4)
+	.loc 1 11 50
+	sw	a0,156(a5)
+	.loc 1 10 28 is_stmt 1
 .LVL31:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 57 is_stmt 0
-	lw	a3,40(a3)
-	.loc 1 15 50
-	sw	a0,160(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 57 is_stmt 0
+	lw	a4,40(a4)
+	.loc 1 11 50
+	sw	a1,160(a5)
+	.loc 1 10 28 is_stmt 1
 .LVL32:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 50 is_stmt 0
-	sw	a1,164(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 50 is_stmt 0
+	sw	a2,164(a5)
+	.loc 1 10 28 is_stmt 1
 .LVL33:
-	.loc 1 14 20
-	.loc 1 15 3
-	.loc 1 15 50 is_stmt 0
-	sw	a3,168(a5)
-	.loc 1 14 28 is_stmt 1
+	.loc 1 10 20
+	.loc 1 11 3
+	.loc 1 11 50 is_stmt 0
+	sw	a4,168(a5)
+	.loc 1 10 28 is_stmt 1
 .LVL34:
-	.loc 1 14 20
-.LBE30:
-.LBB31:
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
-	lw	a1,128(a5)
-.LBE31:
-.LBE29:
-.LBE28:
-	.loc 1 28 8
-	li	a3,805306368
-.LBB34:
-.LBB33:
-.LBB32:
-	.loc 1 18 86
-	slli	a1,a1,16
-	.loc 1 18 37
-	sw	a1,12(a2)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 10 20
+.LBE15:
+.LBB16:
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
+	lw	a2,128(a5)
+.LBE16:
+.LBE18:
+.LBE20:
+	.loc 1 24 8
+	li	a4,805306368
+.LBB21:
+.LBB19:
+.LBB17:
+	.loc 1 14 86
+	slli	a2,a2,16
+	.loc 1 14 37
+	sw	a2,12(a3)
+	.loc 1 13 29 is_stmt 1
 .LVL35:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
-	lw	a1,132(a5)
-	.loc 1 18 86
-	slli	a1,a1,16
-	.loc 1 18 37
-	sw	a1,12(a2)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
+	lw	a2,132(a5)
+	.loc 1 14 86
+	slli	a2,a2,16
+	.loc 1 14 37
+	sw	a2,12(a3)
+	.loc 1 13 29 is_stmt 1
 .LVL36:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
-	lw	a1,136(a5)
-	.loc 1 18 86
-	slli	a1,a1,16
-	.loc 1 18 37
-	sw	a1,12(a2)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
+	lw	a2,136(a5)
+	.loc 1 14 86
+	slli	a2,a2,16
+	.loc 1 14 37
+	sw	a2,12(a3)
+	.loc 1 13 29 is_stmt 1
 .LVL37:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
-	lw	a1,140(a5)
-	.loc 1 18 86
-	slli	a1,a1,16
-	.loc 1 18 37
-	sw	a1,12(a2)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
+	lw	a2,140(a5)
+	.loc 1 14 86
+	slli	a2,a2,16
+	.loc 1 14 37
+	sw	a2,12(a3)
+	.loc 1 13 29 is_stmt 1
 .LVL38:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
-	lw	a1,144(a5)
-	.loc 1 18 86
-	slli	a1,a1,16
-	.loc 1 18 37
-	sw	a1,12(a2)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
+	lw	a2,144(a5)
+	.loc 1 14 86
+	slli	a2,a2,16
+	.loc 1 14 37
+	sw	a2,12(a3)
+	.loc 1 13 29 is_stmt 1
 .LVL39:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
-	lw	a1,148(a5)
-	.loc 1 18 86
-	slli	a1,a1,16
-	.loc 1 18 37
-	sw	a1,12(a2)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
+	lw	a2,148(a5)
+	.loc 1 14 86
+	slli	a2,a2,16
+	.loc 1 14 37
+	sw	a2,12(a3)
+	.loc 1 13 29 is_stmt 1
 .LVL40:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
-	lw	a1,152(a5)
-	.loc 1 18 86
-	slli	a1,a1,16
-	.loc 1 18 37
-	sw	a1,12(a2)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
+	lw	a2,152(a5)
+	.loc 1 14 86
+	slli	a2,a2,16
+	.loc 1 14 37
+	sw	a2,12(a3)
+	.loc 1 13 29 is_stmt 1
 .LVL41:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
-	lw	a1,156(a5)
-	.loc 1 18 86
-	slli	a1,a1,16
-	.loc 1 18 37
-	sw	a1,12(a2)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
+	lw	a2,156(a5)
+	.loc 1 14 86
+	slli	a2,a2,16
+	.loc 1 14 37
+	sw	a2,12(a3)
+	.loc 1 13 29 is_stmt 1
 .LVL42:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
-	lw	a1,160(a5)
-	.loc 1 18 86
-	slli	a1,a1,16
-	.loc 1 18 37
-	sw	a1,12(a2)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
+	lw	a2,160(a5)
+	.loc 1 14 86
+	slli	a2,a2,16
+	.loc 1 14 37
+	sw	a2,12(a3)
+	.loc 1 13 29 is_stmt 1
 .LVL43:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
-	lw	a1,164(a5)
-	.loc 1 18 86
-	slli	a1,a1,16
-	.loc 1 18 37
-	sw	a1,12(a2)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
+	lw	a2,164(a5)
+	.loc 1 14 86
+	slli	a2,a2,16
+	.loc 1 14 37
+	sw	a2,12(a3)
+	.loc 1 13 29 is_stmt 1
 .LVL44:
-	.loc 1 17 21
-	.loc 1 18 3
-	.loc 1 18 41 is_stmt 0
+	.loc 1 13 21
+	.loc 1 14 3
+	.loc 1 14 41 is_stmt 0
 	lw	a5,168(a5)
-	.loc 1 18 86
+	.loc 1 14 86
 	slli	a5,a5,16
-	.loc 1 18 37
-	sw	a5,12(a2)
-	.loc 1 17 29 is_stmt 1
+	.loc 1 14 37
+	sw	a5,12(a3)
+	.loc 1 13 29 is_stmt 1
 .LVL45:
-	.loc 1 17 21
+	.loc 1 13 21
 .L4:
-.LBE32:
-.LBE33:
-.LBE34:
-	.loc 1 27 2
-	.loc 1 28 3
-	.loc 1 28 8 is_stmt 0
-	lw	a5,0(a3)
-	.loc 1 28 43
+.LBE17:
+.LBE19:
+.LBE21:
+	.loc 1 23 2
+	.loc 1 24 3
+	.loc 1 24 8 is_stmt 0
+	lw	a5,0(a4)
+	.loc 1 24 43
 	andi	a5,a5,4
-	.loc 1 28 5
+	.loc 1 24 5
 	beq	a5,zero,.L4
-	.loc 1 29 4 is_stmt 1
-	.loc 1 29 39 is_stmt 0
+	.loc 1 25 4 is_stmt 1
+	.loc 1 25 39 is_stmt 0
 	li	a5,1
-	sw	a5,0(a3)
-	.loc 1 30 4 is_stmt 1
-	.loc 1 34 2
-.LBB35:
-	.loc 1 34 6
+	sw	a5,0(a4)
+	.loc 1 26 4 is_stmt 1
+	.loc 1 30 2
+.LBB22:
+	.loc 1 30 6
 .LVL46:
-	.loc 1 34 19
-	.loc 1 36 38 is_stmt 0
-	li	a2,805306368
-	.loc 1 34 10
+	.loc 1 30 19
+	li	a2,64
+	.loc 1 30 10 is_stmt 0
 	li	a5,0
-	.loc 1 34 19
-	li	a1,64
+	.loc 1 32 38
+	li	a4,805306368
 .LVL47:
 .L5:
-	.loc 1 35 3 is_stmt 1
-.LBB36:
-.LBB37:
-	.loc 1 5 5
- #APP
-# 5 "fir.c" 1
-	addi x0, x0, 0
-# 0 "" 2
- #NO_APP
-.LBE37:
-.LBE36:
-	.loc 1 36 3
-	.loc 1 36 38 is_stmt 0
-	sw	a5,64(a2)
-	.loc 1 37 3 is_stmt 1
-	.loc 1 37 16 is_stmt 0
-	lw	a3,68(a2)
-	.loc 1 34 27
+	.loc 1 32 3 is_stmt 1 discriminator 3
+	.loc 1 32 38 is_stmt 0 discriminator 3
+	sw	a5,64(a4)
+	.loc 1 33 3 is_stmt 1 discriminator 3
+	.loc 1 33 16 is_stmt 0 discriminator 3
+	lw	a3,68(a4)
+	.loc 1 30 27 is_stmt 1 discriminator 3
 	addi	a5,a5,1
 .LVL48:
-	.loc 1 37 13
-	sw	a3,%lo(reg_fir_y)(a4)
+	.loc 1 30 19 discriminator 3
+	bne	a5,a2,.L5
+.LBE22:
+	.loc 1 37 2
+	.loc 1 37 49 is_stmt 0
+	slli	a5,a3,24
 .LVL49:
-	.loc 1 34 27 is_stmt 1
-	.loc 1 34 19
-	bne	a5,a1,.L5
-.LBE35:
-	.loc 1 40 2
-	.loc 1 40 49 is_stmt 0
-	slli	a5,a3,24
+	.loc 1 37 56
+	li	a3,5898240
+	.loc 1 37 36
+	li	a4,637534208
 .LVL50:
-	.loc 1 40 56
-	li	a2,5898240
-	.loc 1 40 36
-	li	a3,637534208
-	.loc 1 40 56
-	or	a5,a5,a2
-	.loc 1 40 36
-	sw	a5,12(a3)
-	.loc 1 41 2 is_stmt 1
-	.loc 1 41 36 is_stmt 0
-	li	a5,10813440
-	sw	a5,12(a3)
-	.loc 1 43 8
-	li	a3,805306368
-.L6:
-	.loc 1 42 2 is_stmt 1
-	.loc 1 43 3
-	.loc 1 43 8 is_stmt 0
-	lw	a5,0(a3)
-	.loc 1 43 43
-	andi	a5,a5,4
-	.loc 1 43 5
-	beq	a5,zero,.L6
-	.loc 1 44 4 is_stmt 1
-	.loc 1 44 39 is_stmt 0
-	li	a5,1
-	sw	a5,0(a3)
-	.loc 1 45 4 is_stmt 1
-	.loc 1 49 2
-.LBB38:
-	.loc 1 49 6
+	.loc 1 37 56
+	or	a5,a5,a3
+	.loc 1 37 36
+	sw	a5,12(a4)
 .LVL51:
-	.loc 1 49 19
-	.loc 1 51 38 is_stmt 0
-	li	a2,805306368
-	.loc 1 49 10
-	li	a5,0
-	.loc 1 49 19
-	li	a1,64
-.LVL52:
-.L7:
-	.loc 1 50 3 is_stmt 1
-.LBB39:
-.LBB40:
-	.loc 1 5 5
- #APP
-# 5 "fir.c" 1
-	addi x0, x0, 0
-# 0 "" 2
- #NO_APP
-.LBE40:
-.LBE39:
-	.loc 1 51 3
-	.loc 1 51 38 is_stmt 0
-	sw	a5,64(a2)
-	.loc 1 52 3 is_stmt 1
-	.loc 1 52 16 is_stmt 0
-	lw	a3,68(a2)
-	.loc 1 49 27
-	addi	a5,a5,1
-.LVL53:
-	.loc 1 52 13
-	sw	a3,%lo(reg_fir_y)(a4)
-.LVL54:
-	.loc 1 49 27 is_stmt 1
-	.loc 1 49 19
-	bne	a5,a1,.L7
-.LBE38:
-	.loc 1 54 2
-	.loc 1 54 49 is_stmt 0
-	slli	a5,a3,24
-.LVL55:
-	.loc 1 54 56
-	li	a2,5898240
-	.loc 1 54 36
-	li	a3,637534208
-	.loc 1 54 56
-	or	a5,a5,a2
-	.loc 1 54 36
-	sw	a5,12(a3)
-	.loc 1 55 2 is_stmt 1
-	.loc 1 55 36 is_stmt 0
+	.loc 1 38 2 is_stmt 1
+	.loc 1 38 36 is_stmt 0
 	li	a5,10813440
-	sw	a5,12(a3)
-	.loc 1 57 8
-	li	a3,805306368
-.L8:
-	.loc 1 56 2 is_stmt 1
-	.loc 1 57 3
-	.loc 1 57 8 is_stmt 0
-	lw	a5,0(a3)
-	.loc 1 57 43
+	sw	a5,12(a4)
+	.loc 1 40 8
+	li	a4,805306368
+.L6:
+	.loc 1 39 2 is_stmt 1
+	.loc 1 40 3
+	.loc 1 40 8 is_stmt 0
+	lw	a5,0(a4)
+	.loc 1 40 43
 	andi	a5,a5,4
-	.loc 1 57 5
-	beq	a5,zero,.L8
-	.loc 1 58 4 is_stmt 1
-	.loc 1 58 39 is_stmt 0
+	.loc 1 40 5
+	beq	a5,zero,.L6
+	.loc 1 41 4 is_stmt 1
+	.loc 1 41 39 is_stmt 0
 	li	a5,1
-	sw	a5,0(a3)
-	.loc 1 59 4 is_stmt 1
-	.loc 1 63 2
-.LBB41:
-	.loc 1 63 6
-.LVL56:
-	.loc 1 63 19
-	.loc 1 65 38 is_stmt 0
+	sw	a5,0(a4)
+	.loc 1 42 4 is_stmt 1
+	.loc 1 46 2
+.LBB23:
+	.loc 1 46 6
+.LVL52:
+	.loc 1 46 19
+	.loc 1 48 38 is_stmt 0
 	li	a2,805306368
-	.loc 1 63 10
+	.loc 1 46 10
 	li	a5,0
-	.loc 1 63 19
-	li	a1,64
-.LVL57:
-.L9:
-	.loc 1 64 3 is_stmt 1
-.LBB42:
-.LBB43:
-	.loc 1 5 5
- #APP
-# 5 "fir.c" 1
-	addi x0, x0, 0
-# 0 "" 2
- #NO_APP
-.LBE43:
-.LBE42:
-	.loc 1 65 3
-	.loc 1 65 38 is_stmt 0
+	.loc 1 50 39
+	li	a1,637534208
+	.loc 1 46 19
+	li	a0,64
+.LVL53:
+.L7:
+	.loc 1 48 3 is_stmt 1 discriminator 3
+	.loc 1 48 38 is_stmt 0 discriminator 3
 	sw	a5,64(a2)
-	.loc 1 66 3 is_stmt 1
-	.loc 1 66 16 is_stmt 0
-	lw	a3,68(a2)
-	.loc 1 63 27
+	.loc 1 49 3 is_stmt 1 discriminator 3
+	.loc 1 49 16 is_stmt 0 discriminator 3
+	lw	a4,68(a2)
+	.loc 1 50 5 is_stmt 1 discriminator 3
+	.loc 1 46 27 is_stmt 0 discriminator 3
 	addi	a5,a5,1
-.LVL58:
-	.loc 1 66 13
-	sw	a3,%lo(reg_fir_y)(a4)
-.LVL59:
-	.loc 1 63 27 is_stmt 1
-	.loc 1 63 19
-	bne	a5,a1,.L9
-.LBE41:
-	.loc 1 68 2
-	.loc 1 68 49 is_stmt 0
-	slli	a5,a3,24
-.LVL60:
-	.loc 1 68 56
+.LVL54:
+	.loc 1 50 51 discriminator 3
+	slli	a3,a4,16
+	.loc 1 50 39 discriminator 3
+	sw	a3,12(a1)
+.LVL55:
+	.loc 1 46 27 is_stmt 1 discriminator 3
+	.loc 1 46 19 discriminator 3
+	bne	a5,a0,.L7
+.LBE23:
+	.loc 1 52 49 is_stmt 0
+	slli	a5,a4,24
+.LVL56:
+	.loc 1 52 56
 	li	a4,5898240
 	or	a5,a5,a4
-	.loc 1 71 1
+	sw	a3,12(a1)
+	.loc 1 52 2 is_stmt 1
+	.loc 1 52 36 is_stmt 0
+	sw	a5,12(a1)
+	.loc 1 53 2 is_stmt 1
+	.loc 1 53 36 is_stmt 0
+	li	a5,10813440
+	sw	a5,12(a1)
+	.loc 1 55 8
+	li	a4,805306368
+.L8:
+	.loc 1 54 2 is_stmt 1
+	.loc 1 55 3
+	.loc 1 55 8 is_stmt 0
+	lw	a5,0(a4)
+	.loc 1 55 43
+	andi	a5,a5,4
+	.loc 1 55 5
+	beq	a5,zero,.L8
+	.loc 1 56 4 is_stmt 1
+	.loc 1 56 39 is_stmt 0
+	li	a5,1
+	sw	a5,0(a4)
+	.loc 1 57 4 is_stmt 1
+	.loc 1 61 2
+.LBB24:
+	.loc 1 61 6
+.LVL57:
+	.loc 1 61 19
+	.loc 1 63 38 is_stmt 0
+	li	a2,805306368
+	.loc 1 61 10
+	li	a5,0
+	.loc 1 65 39
+	li	a1,637534208
+	.loc 1 61 19
+	li	a0,64
+.LVL58:
+.L9:
+	.loc 1 63 3 is_stmt 1 discriminator 3
+	.loc 1 63 38 is_stmt 0 discriminator 3
+	sw	a5,64(a2)
+	.loc 1 64 3 is_stmt 1 discriminator 3
+	.loc 1 64 16 is_stmt 0 discriminator 3
+	lw	a4,68(a2)
+	.loc 1 65 5 is_stmt 1 discriminator 3
+	.loc 1 61 27 is_stmt 0 discriminator 3
+	addi	a5,a5,1
+.LVL59:
+	.loc 1 65 51 discriminator 3
+	slli	a3,a4,16
+	.loc 1 65 39 discriminator 3
+	sw	a3,12(a1)
+.LVL60:
+	.loc 1 61 27 is_stmt 1 discriminator 3
+	.loc 1 61 19 discriminator 3
+	bne	a5,a0,.L9
+	lui	a5,%hi(reg_fir_y)
+.LVL61:
+	sw	a4,%lo(reg_fir_y)(a5)
+.LBE24:
+	.loc 1 67 49 is_stmt 0
+	slli	a5,a4,24
+	.loc 1 67 56
+	li	a4,5898240
+	sw	a3,12(a1)
+	.loc 1 67 2 is_stmt 1
+	.loc 1 67 56 is_stmt 0
+	or	a5,a5,a4
+	.loc 1 70 1
 	lui	a0,%hi(.LANCHOR1)
-	.loc 1 68 36
-	li	a4,637534208
-	sw	a5,12(a4)
-	.loc 1 70 2 is_stmt 1
-	.loc 1 71 1 is_stmt 0
+	.loc 1 67 36
+	sw	a5,12(a1)
+	.loc 1 69 2 is_stmt 1
+	.loc 1 70 1 is_stmt 0
 	addi	a0,a0,%lo(.LANCHOR1)
 	ret
 	.cfi_endproc
-.LFE318:
+.LFE317:
 	.size	fir, .-fir
 	.globl	reg_fir_y
 	.globl	outputsignal
@@ -751,12 +727,12 @@ reg_fir_y:
 	.file 3 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0x210
+	.4byte	0x1dd
 	.2byte	0x5
 	.byte	0x1
 	.byte	0x4
 	.4byte	.Ldebug_abbrev0
-	.byte	0x9
+	.byte	0x8
 	.4byte	.LASF15
 	.byte	0x1d
 	.4byte	.LASF0
@@ -788,7 +764,7 @@ reg_fir_y:
 	.byte	0x2
 	.byte	0x7
 	.4byte	.LASF7
-	.byte	0xa
+	.byte	0x9
 	.4byte	.LASF16
 	.byte	0x3
 	.byte	0x34
@@ -802,7 +778,7 @@ reg_fir_y:
 	.byte	0x8
 	.byte	0x7
 	.4byte	.LASF9
-	.byte	0xb
+	.byte	0xa
 	.byte	0x4
 	.byte	0x5
 	.string	"int"
@@ -810,10 +786,10 @@ reg_fir_y:
 	.byte	0x4
 	.byte	0x7
 	.4byte	.LASF10
-	.byte	0xc
+	.byte	0xb
 	.4byte	0x6a
 	.4byte	0x88
-	.byte	0xd
+	.byte	0xc
 	.4byte	0x71
 	.byte	0xa
 	.byte	0
@@ -845,140 +821,119 @@ reg_fir_y:
 	.byte	0x5
 	.byte	0x3
 	.4byte	reg_fir_y
-	.byte	0xe
+	.byte	0xd
 	.string	"fir"
 	.byte	0x1
-	.byte	0x16
-	.byte	0x33
-	.4byte	0x19a
-	.4byte	.LFB318
-	.4byte	.LFE318-.LFB318
-	.byte	0x1
-	.byte	0x9c
-	.4byte	0x19a
-	.byte	0x4
-	.4byte	.LBB35
-	.4byte	.LBE35-.LBB35
-	.4byte	0x10a
-	.byte	0x5
-	.string	"i"
-	.byte	0x22
-	.4byte	0x6a
-	.4byte	.LLST6
-	.byte	0x6
-	.4byte	0x1c8
-	.4byte	.LBB36
-	.4byte	.LBE36-.LBB36
-	.byte	0x23
-	.byte	0
-	.byte	0x4
-	.4byte	.LBB38
-	.4byte	.LBE38-.LBB38
-	.4byte	0x132
-	.byte	0x5
-	.string	"i"
-	.byte	0x31
-	.4byte	0x6a
-	.4byte	.LLST7
-	.byte	0x6
-	.4byte	0x1c8
-	.4byte	.LBB39
-	.4byte	.LBE39-.LBB39
-	.byte	0x32
-	.byte	0
-	.byte	0x4
-	.4byte	.LBB41
-	.4byte	.LBE41-.LBB41
-	.4byte	0x15a
-	.byte	0x5
-	.string	"i"
-	.byte	0x3f
-	.4byte	0x6a
-	.4byte	.LLST8
-	.byte	0x6
-	.4byte	0x1c8
-	.4byte	.LBB42
-	.4byte	.LBE42-.LBB42
-	.byte	0x40
-	.byte	0
-	.byte	0xf
-	.4byte	0x1a0
-	.4byte	.LBB28
-	.4byte	.LLRL2
-	.byte	0x1
-	.byte	0x19
-	.byte	0x2
-	.byte	0x7
-	.4byte	0x1ad
-	.4byte	.LBB30
-	.4byte	.LBE30-.LBB30
-	.4byte	0x185
-	.byte	0x3
-	.4byte	0x1b2
-	.4byte	.LLST3
-	.byte	0
-	.byte	0x10
-	.4byte	0x1bc
-	.4byte	.LLRL4
-	.byte	0x3
-	.4byte	0x1bd
-	.4byte	.LLST5
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0x11
-	.byte	0x4
-	.4byte	0x6a
 	.byte	0x12
-	.4byte	.LASF17
-	.byte	0x1
-	.byte	0x8
 	.byte	0x33
-	.byte	0x1
-	.4byte	0x1c8
-	.byte	0x13
-	.4byte	0x1bc
-	.byte	0x8
-	.string	"i"
-	.byte	0xe
-	.byte	0xb
-	.4byte	0x6a
-	.byte	0
-	.byte	0x14
-	.byte	0x8
-	.string	"i"
-	.byte	0x11
-	.byte	0xc
-	.4byte	0x6a
-	.byte	0
-	.byte	0
-	.byte	0x15
-	.4byte	.LASF18
-	.byte	0x1
-	.byte	0x4
-	.byte	0xd
-	.byte	0x3
-	.byte	0x16
-	.4byte	0x1a0
+	.4byte	0x170
 	.4byte	.LFB317
 	.4byte	.LFE317-.LFB317
 	.byte	0x1
 	.byte	0x9c
-	.byte	0x7
-	.4byte	0x1ad
+	.4byte	0x170
+	.byte	0x4
+	.4byte	.LBB22
+	.4byte	.LBE22-.LBB22
+	.4byte	0xfc
+	.byte	0x5
+	.string	"i"
+	.byte	0x1e
+	.4byte	0x6a
+	.4byte	.LLST6
+	.byte	0
+	.byte	0x4
+	.4byte	.LBB23
+	.4byte	.LBE23-.LBB23
+	.4byte	0x116
+	.byte	0x5
+	.string	"i"
+	.byte	0x2e
+	.4byte	0x6a
+	.4byte	.LLST7
+	.byte	0
+	.byte	0x4
+	.4byte	.LBB24
+	.4byte	.LBE24-.LBB24
+	.4byte	0x130
+	.byte	0x5
+	.string	"i"
+	.byte	0x3d
+	.4byte	0x6a
+	.4byte	.LLST8
+	.byte	0
+	.byte	0xe
+	.4byte	0x176
 	.4byte	.LBB13
-	.4byte	.LBE13-.LBB13
-	.4byte	0x1fb
+	.4byte	.LLRL2
+	.byte	0x1
+	.byte	0x15
+	.byte	0x2
+	.byte	0x6
+	.4byte	0x183
+	.4byte	.LBB15
+	.4byte	.LBE15-.LBB15
+	.4byte	0x15b
 	.byte	0x3
-	.4byte	0x1b2
+	.4byte	0x188
+	.4byte	.LLST3
+	.byte	0
+	.byte	0xf
+	.4byte	0x192
+	.4byte	.LLRL4
+	.byte	0x3
+	.4byte	0x193
+	.4byte	.LLST5
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0x10
+	.byte	0x4
+	.4byte	0x6a
+	.byte	0x11
+	.4byte	.LASF17
+	.byte	0x1
+	.byte	0x4
+	.byte	0x33
+	.byte	0x1
+	.4byte	0x19e
+	.byte	0x12
+	.4byte	0x192
+	.byte	0x7
+	.string	"i"
+	.byte	0xa
+	.byte	0xb
+	.4byte	0x6a
+	.byte	0
+	.byte	0x13
+	.byte	0x7
+	.string	"i"
+	.byte	0xd
+	.byte	0xc
+	.4byte	0x6a
+	.byte	0
+	.byte	0
+	.byte	0x14
+	.4byte	0x176
+	.4byte	.LFB316
+	.4byte	.LFE316-.LFB316
+	.byte	0x1
+	.byte	0x9c
+	.byte	0x6
+	.4byte	0x183
+	.4byte	.LBB4
+	.4byte	.LBE4-.LBB4
+	.4byte	0x1c8
+	.byte	0x3
+	.4byte	0x188
 	.4byte	.LLST0
 	.byte	0
-	.byte	0x17
-	.4byte	0x1bc
-	.4byte	.LBB14
-	.4byte	.LBE14-.LBB14
+	.byte	0x15
+	.4byte	0x192
+	.4byte	.LBB5
+	.4byte	.LBE5-.LBB5
 	.byte	0x3
-	.4byte	0x1bd
+	.4byte	0x193
 	.4byte	.LLST1
 	.byte	0
 	.byte	0
@@ -1057,38 +1012,19 @@ reg_fir_y:
 	.byte	0
 	.byte	0
 	.byte	0x6
-	.byte	0x1d
-	.byte	0
+	.byte	0xb
+	.byte	0x1
 	.byte	0x31
 	.byte	0x13
 	.byte	0x11
 	.byte	0x1
 	.byte	0x12
 	.byte	0x6
-	.byte	0x58
-	.byte	0x21
 	.byte	0x1
-	.byte	0x59
-	.byte	0xb
-	.byte	0x57
-	.byte	0x21
-	.byte	0x3
+	.byte	0x13
 	.byte	0
 	.byte	0
 	.byte	0x7
-	.byte	0xb
-	.byte	0x1
-	.byte	0x31
-	.byte	0x13
-	.byte	0x11
-	.byte	0x1
-	.byte	0x12
-	.byte	0x6
-	.byte	0x1
-	.byte	0x13
-	.byte	0
-	.byte	0
-	.byte	0x8
 	.byte	0x34
 	.byte	0
 	.byte	0x3
@@ -1104,7 +1040,7 @@ reg_fir_y:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0x9
+	.byte	0x8
 	.byte	0x11
 	.byte	0x1
 	.byte	0x25
@@ -1123,7 +1059,7 @@ reg_fir_y:
 	.byte	0x17
 	.byte	0
 	.byte	0
-	.byte	0xa
+	.byte	0x9
 	.byte	0x16
 	.byte	0
 	.byte	0x3
@@ -1138,7 +1074,7 @@ reg_fir_y:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0xb
+	.byte	0xa
 	.byte	0x24
 	.byte	0
 	.byte	0xb
@@ -1149,7 +1085,7 @@ reg_fir_y:
 	.byte	0x8
 	.byte	0
 	.byte	0
-	.byte	0xc
+	.byte	0xb
 	.byte	0x1
 	.byte	0x1
 	.byte	0x49
@@ -1158,7 +1094,7 @@ reg_fir_y:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0xd
+	.byte	0xc
 	.byte	0x21
 	.byte	0
 	.byte	0x49
@@ -1167,7 +1103,7 @@ reg_fir_y:
 	.byte	0xb
 	.byte	0
 	.byte	0
-	.byte	0xe
+	.byte	0xd
 	.byte	0x2e
 	.byte	0x1
 	.byte	0x3f
@@ -1194,7 +1130,7 @@ reg_fir_y:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0xf
+	.byte	0xe
 	.byte	0x1d
 	.byte	0x1
 	.byte	0x31
@@ -1211,7 +1147,7 @@ reg_fir_y:
 	.byte	0xb
 	.byte	0
 	.byte	0
-	.byte	0x10
+	.byte	0xf
 	.byte	0xb
 	.byte	0x1
 	.byte	0x31
@@ -1220,7 +1156,7 @@ reg_fir_y:
 	.byte	0x17
 	.byte	0
 	.byte	0
-	.byte	0x11
+	.byte	0x10
 	.byte	0xf
 	.byte	0
 	.byte	0xb
@@ -1229,7 +1165,7 @@ reg_fir_y:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0x12
+	.byte	0x11
 	.byte	0x2e
 	.byte	0x1
 	.byte	0x3f
@@ -1248,36 +1184,19 @@ reg_fir_y:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0x13
+	.byte	0x12
 	.byte	0xb
 	.byte	0x1
 	.byte	0x1
 	.byte	0x13
+	.byte	0
+	.byte	0
+	.byte	0x13
+	.byte	0xb
+	.byte	0x1
 	.byte	0
 	.byte	0
 	.byte	0x14
-	.byte	0xb
-	.byte	0x1
-	.byte	0
-	.byte	0
-	.byte	0x15
-	.byte	0x2e
-	.byte	0
-	.byte	0x3f
-	.byte	0x19
-	.byte	0x3
-	.byte	0xe
-	.byte	0x3a
-	.byte	0xb
-	.byte	0x3b
-	.byte	0xb
-	.byte	0x39
-	.byte	0xb
-	.byte	0x20
-	.byte	0xb
-	.byte	0
-	.byte	0
-	.byte	0x16
 	.byte	0x2e
 	.byte	0x1
 	.byte	0x31
@@ -1292,7 +1211,7 @@ reg_fir_y:
 	.byte	0x19
 	.byte	0
 	.byte	0
-	.byte	0x17
+	.byte	0x15
 	.byte	0xb
 	.byte	0x1
 	.byte	0x31
@@ -1321,66 +1240,75 @@ reg_fir_y:
 	.byte	0x9f
 	.byte	0x7
 	.4byte	.LVL47
-	.4byte	.LVL48
+	.4byte	.LVL49
 	.byte	0x1
 	.byte	0x5f
-	.byte	0x7
-	.4byte	.LVL48
-	.4byte	.LVL49
-	.byte	0x3
-	.byte	0x7c
-	.byte	0xc0,0
 	.byte	0x7
 	.4byte	.LVL49
 	.4byte	.LVL50
+	.byte	0x7
+	.byte	0x7e
+	.byte	0xc0,0
+	.byte	0x6
+	.byte	0x23
 	.byte	0x1
-	.byte	0x5f
+	.byte	0x9f
+	.byte	0x7
+	.4byte	.LVL50
+	.4byte	.LVL51
+	.byte	0x9
+	.byte	0xc
+	.4byte	0x30000040
+	.byte	0x6
+	.byte	0x23
+	.byte	0x1
+	.byte	0x9f
 	.byte	0
 .LLST7:
 	.byte	0x7
-	.4byte	.LVL51
 	.4byte	.LVL52
+	.4byte	.LVL53
 	.byte	0x2
 	.byte	0x30
 	.byte	0x9f
 	.byte	0x7
-	.4byte	.LVL52
 	.4byte	.LVL53
+	.4byte	.LVL54
 	.byte	0x1
 	.byte	0x5f
 	.byte	0x7
-	.4byte	.LVL53
 	.4byte	.LVL54
+	.4byte	.LVL55
 	.byte	0x3
 	.byte	0x7c
 	.byte	0xc0,0
 	.byte	0x7
-	.4byte	.LVL54
 	.4byte	.LVL55
+	.4byte	.LVL56
 	.byte	0x1
 	.byte	0x5f
 	.byte	0
 .LLST8:
 	.byte	0x7
-	.4byte	.LVL56
 	.4byte	.LVL57
+	.4byte	.LVL58
 	.byte	0x2
 	.byte	0x30
 	.byte	0x9f
 	.byte	0x7
-	.4byte	.LVL57
 	.4byte	.LVL58
+	.4byte	.LVL59
 	.byte	0x1
 	.byte	0x5f
 	.byte	0x7
-	.4byte	.LVL58
 	.4byte	.LVL59
+	.4byte	.LVL60
 	.byte	0x3
 	.byte	0x7c
 	.byte	0xc0,0
 	.byte	0x7
-	.4byte	.LVL59
 	.4byte	.LVL60
+	.4byte	.LVL61
 	.byte	0x1
 	.byte	0x5f
 	.byte	0
@@ -1595,7 +1523,7 @@ reg_fir_y:
 	.byte	0x9f
 	.byte	0x7
 	.4byte	.LVL11
-	.4byte	.LFE317
+	.4byte	.LFE316
 	.byte	0x2
 	.byte	0x3b
 	.byte	0x9f
@@ -1669,7 +1597,7 @@ reg_fir_y:
 	.byte	0x9f
 	.byte	0x7
 	.4byte	.LVL22
-	.4byte	.LFE317
+	.4byte	.LFE316
 	.byte	0x2
 	.byte	0x3b
 	.byte	0x9f
@@ -1683,10 +1611,10 @@ reg_fir_y:
 	.byte	0
 	.2byte	0
 	.2byte	0
+	.4byte	.LFB316
+	.4byte	.LFE316-.LFB316
 	.4byte	.LFB317
 	.4byte	.LFE317-.LFB317
-	.4byte	.LFB318
-	.4byte	.LFE318-.LFB318
 	.4byte	0
 	.4byte	0
 	.section	.debug_rnglists,"",@progbits
@@ -1699,27 +1627,30 @@ reg_fir_y:
 	.4byte	0
 .LLRL2:
 	.byte	0x6
-	.4byte	.LBB28
-	.4byte	.LBE28
+	.4byte	.LBB13
+	.4byte	.LBE13
 	.byte	0x6
-	.4byte	.LBB34
-	.4byte	.LBE34
+	.4byte	.LBB20
+	.4byte	.LBE20
+	.byte	0x6
+	.4byte	.LBB21
+	.4byte	.LBE21
 	.byte	0
 .LLRL4:
 	.byte	0x6
-	.4byte	.LBB31
-	.4byte	.LBE31
+	.4byte	.LBB16
+	.4byte	.LBE16
 	.byte	0x6
-	.4byte	.LBB32
-	.4byte	.LBE32
+	.4byte	.LBB17
+	.4byte	.LBE17
 	.byte	0
 .LLRL9:
 	.byte	0x6
+	.4byte	.LFB316
+	.4byte	.LFE316
+	.byte	0x6
 	.4byte	.LFB317
 	.4byte	.LFE317
-	.byte	0x6
-	.4byte	.LFB318
-	.4byte	.LFE318
 	.byte	0
 .Ldebug_ranges3:
 	.section	.debug_line,"",@progbits
@@ -1751,8 +1682,6 @@ reg_fir_y:
 	.string	"taps"
 .LASF3:
 	.string	"short int"
-.LASF18:
-	.string	"insert_nop"
 .LASF16:
 	.string	"uint32_t"
 .LASF4:

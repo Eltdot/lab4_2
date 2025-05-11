@@ -1,11 +1,12 @@
-# 0 "counter_la_fir.c"
+# 0 "fir.c"
 # 1 "/home/ubuntu/Lab4_2_Others/lab-caravel_fir/testbench/counter_la_fir//"
 # 0 "<built-in>"
 # 0 "<command-line>"
-# 1 "counter_la_fir.c"
-# 19 "counter_la_fir.c"
-# 1 "../../firmware/defs.h" 1
-# 21 "../../firmware/defs.h"
+# 1 "fir.c"
+# 1 "fir.h" 1
+
+
+
 # 1 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint.h" 1 3 4
 # 11 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint.h" 3 4
 # 1 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h" 1 3 4
@@ -72,7 +73,18 @@ typedef unsigned int uintptr_t;
 typedef long long int intmax_t;
 typedef long long unsigned int uintmax_t;
 # 12 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint.h" 2 3 4
-# 22 "../../firmware/defs.h" 2
+# 5 "fir.h" 2
+# 22 "fir.h"
+
+# 22 "fir.h"
+int taps[11] = {0, -10, -9, 23, 56, 63, 56, 23, -9, -10, 0};
+int inputbuffer[11];
+int outputsignal[11];
+
+int reg_fir_y;
+# 2 "fir.c" 2
+# 1 "../../firmware/defs.h" 1
+# 22 "../../firmware/defs.h"
 # 1 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdbool.h" 1 3 4
 # 23 "../../firmware/defs.h" 2
 
@@ -81,8 +93,6 @@ typedef long long unsigned int uintmax_t;
 
 
 # 1 "../../firmware/generated/soc.h" 1
-# 33 "../../firmware/generated/soc.h"
-
 # 33 "../../firmware/generated/soc.h"
 static inline int config_clock_frequency_read(void) {
  return 10000000;
@@ -1595,90 +1605,72 @@ extern uint32_t sram;
 
 extern uint32_t flashio_worker_begin;
 extern uint32_t flashio_worker_end;
-# 20 "counter_la_fir.c" 2
-# 1 "../../firmware/stub.c" 1
-# 18 "../../firmware/stub.c"
-void putchar(char c)
-{
- if (c == '\n')
-  putchar('\r');
-    while ((*(volatile uint32_t*) (0xf0000000L + 0x5804L)) == 1);
- (*(volatile uint32_t*) (0xf0000000L + 0x5800L)) = c;
+# 3 "fir.c" 2
+
+void __attribute__ ( ( section ( ".mprjram" ) ) ) initfir() {
+
+
+ reg_fir_y = 0;
+ (*(volatile uint32_t*)(0x30000010) = (64));
+ (*(volatile uint32_t*)(0x30000014) = (11));
+ for (int i = 0; i < 11; i = i + 1){
+  (*(volatile uint32_t*)((0x30000080 + (4 * i))) = (taps[i]));
+ }
+  for (int i = 0; i < 11; i = i + 1){
+  (*(volatile uint32_t*)0x2600000c) = ((*(volatile uint32_t*)(0x30000080 + (4 * i))) << 16);
+ }
 }
 
-void print(const char *p)
-{
- while (*p)
-  putchar(*(p++));
-}
-# 21 "counter_la_fir.c" 2
+int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir(){
 
-extern int* fir();
-# 34 "counter_la_fir.c"
-void main()
-{
- int j;
-# 63 "counter_la_fir.c"
-        (*(volatile uint32_t*)0x260000a0) = 0x1809;
-        (*(volatile uint32_t*)0x2600009c) = 0x1809;
-        (*(volatile uint32_t*)0x26000098) = 0x1809;
-        (*(volatile uint32_t*)0x26000094) = 0x1809;
-        (*(volatile uint32_t*)0x26000090) = 0x1809;
-        (*(volatile uint32_t*)0x2600008c) = 0x1809;
-        (*(volatile uint32_t*)0x26000088) = 0x1809;
-        (*(volatile uint32_t*)0x26000084) = 0x1809;
-        (*(volatile uint32_t*)0x26000080) = 0x1809;
-        (*(volatile uint32_t*)0x2600007c) = 0x1809;
-        (*(volatile uint32_t*)0x26000078) = 0x1809;
-        (*(volatile uint32_t*)0x26000074) = 0x1809;
-        (*(volatile uint32_t*)0x26000070) = 0x1809;
-        (*(volatile uint32_t*)0x2600006c) = 0x1809;
-        (*(volatile uint32_t*)0x26000068) = 0x1809;
-        (*(volatile uint32_t*)0x26000064) = 0x1809;
+ (*(volatile uint32_t*)0x2600000c) = 0x00A50000;
+ initfir();
 
-        (*(volatile uint32_t*)0x26000060) = 0x1808;
-        (*(volatile uint32_t*)0x2600005c) = 0x1808;
-        (*(volatile uint32_t*)0x26000058) = 0x1808;
-        (*(volatile uint32_t*)0x26000054) = 0x1808;
-        (*(volatile uint32_t*)0x26000050) = 0x1808;
-        (*(volatile uint32_t*)0x2600004c) = 0x1808;
-        (*(volatile uint32_t*)0x26000048) = 0x1808;
-        (*(volatile uint32_t*)0x26000044) = 0x1808;
-        (*(volatile uint32_t*)0x26000040) = 0x1808;
-        (*(volatile uint32_t*)0x26000038) = 0x1808;
-        (*(volatile uint32_t*)0x26000034) = 0x1808;
-        (*(volatile uint32_t*)0x26000030) = 0x1808;
-        (*(volatile uint32_t*)0x2600002c) = 0x1808;
-        (*(volatile uint32_t*)0x26000028) = 0x1808;
-        (*(volatile uint32_t*)0x26000024) = 0x1808;
+ while(1) {
+  if(((*(volatile uint32_t*)(0x30000000)) & (1 << 2)) == 0x00000004){
+   (*(volatile uint32_t*)(0x30000000) = (1));
+   break;
+  }
+ }
 
-        (*(volatile uint32_t*)0x2600003c) = 0x1809;
+ for(int i = 0; i < 64; i = i + 1){
 
+  (*(volatile uint32_t*)(0x30000040) = (i));
+  reg_fir_y = (*(volatile uint32_t*)(0x30000044));
 
+ }
 
- (*(volatile uint32_t*) (0xf0000000L + 0x6000L)) = 1;
+ (*(volatile uint32_t*)0x2600000c) = (reg_fir_y << 24) | (0x005A0000);
+ (*(volatile uint32_t*)0x2600000c) = 0x00A50000;
+ while(1) {
+  if(((*(volatile uint32_t*)(0x30000000)) & (1 << 2)) == 0x00000004){
+   (*(volatile uint32_t*)(0x30000000) = (1));
+   break;
+  }
+ }
 
+ for(int i = 0; i < 64; i = i + 1){
 
- (*(volatile uint32_t*)0x26000000) = 1;
- while ((*(volatile uint32_t*)0x26000000) == 1);
+  (*(volatile uint32_t*)(0x30000040) = (i));
+  reg_fir_y = (*(volatile uint32_t*)(0x30000044));
+    (*(volatile uint32_t*)0x2600000c) = reg_fir_y << 16;
+ }
+ (*(volatile uint32_t*)0x2600000c) = (reg_fir_y << 24) | (0x005A0000);
+ (*(volatile uint32_t*)0x2600000c) = 0x00A50000;
+ while(1) {
+  if(((*(volatile uint32_t*)(0x30000000)) & (1 << 2)) == 0x00000004){
+   (*(volatile uint32_t*)(0x30000000) = (1));
+   break;
+  }
+ }
 
+ for(int i = 0; i < 64; i = i + 1){
 
+  (*(volatile uint32_t*)(0x30000040) = (i));
+  reg_fir_y = (*(volatile uint32_t*)(0x30000044));
+    (*(volatile uint32_t*)0x2600000c) = reg_fir_y << 16;
+ }
+ (*(volatile uint32_t*)0x2600000c) = (reg_fir_y << 24) | (0x005A0000);
 
- (*(volatile uint32_t*) ((0xf0000000L + 0x3010L) + 12)) = (*(volatile uint32_t*) ((0xf0000000L + 0x3000L) + 12)) = 0x00000000;
- (*(volatile uint32_t*) ((0xf0000000L + 0x3010L) + 8)) = (*(volatile uint32_t*) ((0xf0000000L + 0x3000L) + 8)) = 0xFFFFFFFF;
- (*(volatile uint32_t*) ((0xf0000000L + 0x3010L) + 4)) = (*(volatile uint32_t*) ((0xf0000000L + 0x3000L) + 4)) = 0x00000000;
- (*(volatile uint32_t*) (0xf0000000L + 0x3010L)) = (*(volatile uint32_t*) (0xf0000000L + 0x3000L)) = 0x00000000;
-
-
- (*(volatile uint32_t*)0x2600000c) = 0xAB400000;
-
-
- (*(volatile uint32_t*) ((0xf0000000L + 0x3030L) + 8)) = 0x00000000;
-
-
- (*(volatile uint32_t*) ((0xf0000000L + 0x3010L) + 8)) = (*(volatile uint32_t*) ((0xf0000000L + 0x3000L) + 8)) = 0x00000000;
-# 130 "counter_la_fir.c"
- int* tmp = fir();
-# 144 "counter_la_fir.c"
- (*(volatile uint32_t*)0x2600000c) = 0xAB510000;
+ return outputsignal;
 }
