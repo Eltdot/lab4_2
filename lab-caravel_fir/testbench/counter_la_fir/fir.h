@@ -6,13 +6,13 @@
 #define N 11
 #define data_length 64
 
-// MMIO register addresses（保留變數名稱）
+// MMIO register addresses
 #define reg_fir_control  0x30000000
 #define reg_data_length  0x30000010
 #define reg_tap_number   0x30000014
 #define fir_x            0x30000040
 #define fir_y            0x30000044
-#define reg_fir_coeff    0x30000080  // base address for tap coefficients
+#define reg_fir_coeff    0x30000080 
 
 // MMIO access macros
 #define write_reg(addr, data) (*(volatile uint32_t*)(addr) = (data))
